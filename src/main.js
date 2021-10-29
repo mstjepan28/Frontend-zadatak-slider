@@ -1,5 +1,6 @@
 let offset = { topRow: 0, btmRow: 0 }
 let direction = "left";
+let isDisabled = false;
 
 /************************************************************************/
 
@@ -70,6 +71,9 @@ function getOffsetValue(imageList){
 }
 
 function moveImages(newDirection){
+    if(isDisabled) return;
+    isDisabled = true;
+
     direction = newDirection;
 
     const imageListTop = document.querySelectorAll("div.topRow img");
@@ -84,8 +88,13 @@ function moveImages(newDirection){
     setTimeout(() => {
         updateRows("topRow");
         updateRows("btmRow");
+
+        isDisabled = false;
     }, 400);
 }
+
+document.querySelector("button.leftBtn").addEventListener("click", () => moveImages('left'));
+document.querySelector("button.rightBtn").addEventListener("click", () => moveImages('right'));
 
 /************************************************************************/
 
