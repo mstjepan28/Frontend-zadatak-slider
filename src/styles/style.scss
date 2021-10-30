@@ -128,7 +128,7 @@ body{
     top: calc(50% + 15px)
 }
 
-.controlBtn{
+@mixin controlButton($originalImg, $hoverImg){
     width: 60px;
     height: 60px;
 
@@ -139,22 +139,17 @@ body{
 
     background-color: #F2F2F2 !important;
 
-    &.rightBtn{
-        background: url("../../assets/arrow-gray-right.png") no-repeat center;
+    background: url($originalImg) no-repeat center;
 
-        &:hover{
-            border-color: #134880;
-            background-image: url("../../assets/arrow-blue-right.png");
-        }
+    &:hover{
+        border-color: #134880;
+        background-image: url($hoverImg);
     }
+}
 
-    &.leftBtn{
-        background: url("../../assets/arrow-gray-left.png") no-repeat center;
-        background-position: center;
-
-        &:hover{
-            border-color: #134880;
-            background-image: url("../../assets/arrow-blue-left.png");
-        }
-    }
+.rightBtn{
+    @include controlButton("../../assets/arrow-gray-right.png", "../../assets/arrow-blue-right.png");
+}
+.leftBtn{
+    @include controlButton("../../assets/arrow-gray-left.png", "../../assets/arrow-blue-left.png");
 }

@@ -130,30 +130,32 @@ body {
   top: calc(50% + 15px);
 }
 
-.controlBtn {
+.rightBtn {
   width: 60px;
   height: 60px;
   margin-bottom: 10px;
   border: 1px solid #DDDDDD;
   border-radius: 5px;
   background-color: #F2F2F2 !important;
-}
-
-.controlBtn.rightBtn {
   background: url("../../assets/arrow-gray-right.png") no-repeat center;
 }
 
-.controlBtn.rightBtn:hover {
+.rightBtn:hover {
   border-color: #134880;
   background-image: url("../../assets/arrow-blue-right.png");
 }
 
-.controlBtn.leftBtn {
+.leftBtn {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  background-color: #F2F2F2 !important;
   background: url("../../assets/arrow-gray-left.png") no-repeat center;
-  background-position: center;
 }
 
-.controlBtn.leftBtn:hover {
+.leftBtn:hover {
   border-color: #134880;
   background-image: url("../../assets/arrow-blue-left.png");
 }
