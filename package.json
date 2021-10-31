@@ -1,0 +1,24 @@
+{
+  "name": "frontend-zadatak-slider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mstjepan28/Frontend-zadatak-slider.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mstjepan28/Frontend-zadatak-slider/issues"
+  },
+  "homepage": "https://github.com/mstjepan28/Frontend-zadatak-slider#readme",
+  "dependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0"
+  }
+}
