@@ -18,17 +18,9 @@ $grayedOut: #DDDDDD;
 }
 
 body{
-    width: 50%;
+    width: 940px;
     margin: 0 auto;
     background: $backgroundColor;
-}
-
-/******************************************/
-
-.row{
-    display: flex;
-    flex-direction: row;
-    justify-content:flex-end;
 }
 
 /******************************************/
@@ -69,50 +61,61 @@ body{
     position: relative;
 
     margin-right: 1.25rem;
+
+    &>.slider{
+        display: flex;
+        flex-direction: column;
+
+        background: red;
+    }
 }
 
-.slider{
-    width: 60vw;
+@mixin row($width, $top, $left){
+    width: $width;
 
     display: flex;
-    flex-direction: column;
+    justify-content: flex-end;
 
     position: absolute;
-    left: -75%;
+    top: $top;
+    left: $left;
 
     overflow: hidden;
 
     img{
         max-height: 200px;
     
-        visibility: hidden;
-    
         margin: 0 0 0.625rem 0.625rem;
         border-radius: 5px;
-    
-        &[src]{
-            visibility: visible;
-        }
     }
+}
+
+.topRow{
+    @include row(60vw, 0, -27vw)
+}
+.btmRow{
+    @include row(calc(60vw - 10rem), calc(50% + 10px), -27vw)
+}
+
+.transition{
+    transition: .4s;
 }
 
 /******************************************/
 
 .textContainer{
-    width: 30%;
+    width: 18.75rem;
     height: 100%;
 }
 .title{
-    font-weight: 700;
     font-size: 32px;
-    line-height: 40px;
+    line-height: 37px;
     letter-spacing: -0.2px;
     color: $headerTextColor;
 
     margin-bottom: 1.5rem;
 }
 .mainText{
-    font-weight: 400;
     font-size: 18px;
     line-height: 26px;
     color: $mainTextColor;
@@ -125,7 +128,7 @@ body{
 
     position: absolute;
     right: 0;
-    top: calc(50% + 15px)
+    top: calc(50% + 10px)
 }
 
 @mixin controlButton($originalImg, $hoverImg){

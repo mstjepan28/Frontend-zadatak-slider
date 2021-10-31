@@ -10,23 +10,9 @@
 }
 
 body {
-  width: 50%;
+  width: 940px;
   margin: 0 auto;
   background: #F2F2F2;
-}
-
-/******************************************/
-.row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
 }
 
 /******************************************/
@@ -69,8 +55,7 @@ body {
   margin-right: 1.25rem;
 }
 
-.slider {
-  width: 60vw;
+.sliderContainer > .slider {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -78,39 +63,69 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background: red;
+}
+
+.topRow {
+  width: 60vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   position: absolute;
-  left: -75%;
+  top: 0;
+  left: -27vw;
   overflow: hidden;
 }
 
-.slider img {
+.topRow img {
   max-height: 200px;
-  visibility: hidden;
   margin: 0 0 0.625rem 0.625rem;
   border-radius: 5px;
 }
 
-.slider img[src] {
-  visibility: visible;
+.btmRow {
+  width: calc(60vw - 10rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: absolute;
+  top: calc(50% + 10px);
+  left: -27vw;
+  overflow: hidden;
+}
+
+.btmRow img {
+  max-height: 200px;
+  margin: 0 0 0.625rem 0.625rem;
+  border-radius: 5px;
+}
+
+.transition {
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
 /******************************************/
 .textContainer {
-  width: 30%;
+  width: 18.75rem;
   height: 100%;
 }
 
 .title {
-  font-weight: 700;
   font-size: 32px;
-  line-height: 40px;
+  line-height: 37px;
   letter-spacing: -0.2px;
   color: #134880;
   margin-bottom: 1.5rem;
 }
 
 .mainText {
-  font-weight: 400;
   font-size: 18px;
   line-height: 26px;
   color: #484A4C;
@@ -127,7 +142,7 @@ body {
           flex-direction: column;
   position: absolute;
   right: 0;
-  top: calc(50% + 15px);
+  top: calc(50% + 10px);
 }
 
 .rightBtn {
