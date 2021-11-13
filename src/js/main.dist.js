@@ -6,7 +6,7 @@ var offset = {
   topRow: 0,
   btmRow: 0
 };
-var rowArray = ["topRow", "btmRow"];
+var rowArray = [];
 /************************************************************************/
 
 function calcOffsetValues(rowName) {
@@ -95,16 +95,10 @@ function handleRightShiftUpdate(row) {
   $("." + row).prepend(node);
 }
 /************************************************************************/
-
-
-$(".leftBtn").on("click", function () {
-  return moveImages(-1);
-});
-$(".rightBtn").on("click", function () {
-  return moveImages(1);
-}); // Check if the movement is enabled, if it is calculate the offset value 
+// Check if the movement is enabled, if it is calculate the offset value 
 //  and move the image in each row. After the transition in finished,
 //  update each row and enable the movement again.
+
 
 function moveImages(newDirection) {
   if (disableMovement) return;
@@ -120,4 +114,22 @@ function moveImages(newDirection) {
     });
     disableMovement = false;
   }, 600);
+} // Get class of each of the rows that will allow us to control the rows 
+
+
+function getRows() {
+  $(".slider").children("div").each(function (i) {
+    var classList = $(this).attr('class').split(" ");
+    rowArray.push(classList[1]);
+  });
 }
+
+$(document).ready(function () {
+  getRows();
+  $(".leftBtn").on("click", function () {
+    return moveImages(-1);
+  });
+  $(".rightBtn").on("click", function () {
+    return moveImages(1);
+  });
+});

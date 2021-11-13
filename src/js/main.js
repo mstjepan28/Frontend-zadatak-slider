@@ -1,7 +1,7 @@
 let direction = -1;
 let disableMovement = false;
 let offset = { topRow: 0, btmRow: 0 }
-let rowArray = ["topRow", "btmRow"]
+let rowArray = []
 
 /************************************************************************/
 
@@ -91,9 +91,6 @@ function handleRightShiftUpdate(row){
 
 /************************************************************************/
 
-$(".leftBtn").on("click", () => moveImages(-1));
-$(".rightBtn").on("click", () => moveImages(1));
-
 // Check if the movement is enabled, if it is calculate the offset value 
 //  and move the image in each row. After the transition in finished,
 //  update each row and enable the movement again.
@@ -113,3 +110,18 @@ function moveImages(newDirection){
         disableMovement = false;
     }, 600)
 }
+
+// Get class of each of the rows that will allow us to control the rows 
+function getRows(){
+    $(".slider").children("div").each(function(i){
+        const classList = $(this).attr('class').split(" ");
+        rowArray.push(classList[1]);
+    })
+}
+
+$(document).ready(function(){
+    getRows();
+
+    $(".leftBtn").on("click", () => moveImages(-1));
+    $(".rightBtn").on("click", () => moveImages(1));
+})

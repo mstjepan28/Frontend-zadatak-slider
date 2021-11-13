@@ -41,7 +41,7 @@ body{
 
 .mainContent{
     min-width: 100%;
-    height: 70vh;
+    min-height: 70vh;
 
     display: flex;
     padding: 3.75rem 0;
@@ -51,7 +51,6 @@ body{
 
 .sliderContainer{
     width: 70%;
-    height: 100%;
 
     position: relative;
 
@@ -61,15 +60,13 @@ body{
         display: flex;
         flex-direction: column;
 
-        background: red;
+        position: absolute; 
+        left: -27vw;
     }
 }
 
-.topRow{
+.row{
     @include row(60vw, 0, -27vw)
-}
-.btmRow{
-    @include row(calc(60vw - 10rem), calc(50% + 10px), -27vw)
 }
 
 .transition{
