@@ -6,6 +6,7 @@ var offset = {
   topRow: 0,
   btmRow: 0
 };
+var rowArray = ["topRow", "btmRow"];
 /************************************************************************/
 
 function calcOffsetValues(rowName) {
@@ -109,12 +110,12 @@ function moveImages(newDirection) {
   if (disableMovement) return;
   disableMovement = true;
   direction = newDirection;
-  ["topRow", "btmRow"].forEach(function (row) {
+  rowArray.forEach(function (row) {
     calcOffsetValues(row);
     shiftImages(row);
   });
   setTimeout(function () {
-    ["topRow", "btmRow"].forEach(function (row) {
+    rowArray.forEach(function (row) {
       return updateRow(row);
     });
     disableMovement = false;

@@ -1,6 +1,7 @@
 let direction = -1;
 let disableMovement = false;
 let offset = { topRow: 0, btmRow: 0 }
+let rowArray = ["topRow", "btmRow"]
 
 /************************************************************************/
 
@@ -101,14 +102,14 @@ function moveImages(newDirection){
     disableMovement = true;
     
     direction = newDirection;
-
-    ["topRow", "btmRow"].forEach(row => {
+ 
+    rowArray.forEach(row => {
         calcOffsetValues(row);
         shiftImages(row);
     })
 
     setTimeout(() => {
-        ["topRow", "btmRow"].forEach(row => updateRow(row))
+        rowArray.forEach(row => updateRow(row))
         disableMovement = false;
     }, 600)
 }

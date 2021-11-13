@@ -1,0 +1,38 @@
+@mixin row($width, $top, $left){
+    width: $width;
+
+    display: flex;
+    justify-content: flex-end;
+
+    position: absolute;
+    top: $top;
+    left: $left;
+
+    overflow: hidden;
+
+    img{
+        max-height: 200px;
+    
+        margin: 0 0 0.625rem 0.625rem;
+        border-radius: 5px;
+    }
+}
+
+@mixin controlButton($originalImg, $hoverImg){
+    width: 60px;
+    height: 60px;
+
+    margin-bottom: 10px;
+
+    border: 1px solid $grayedOut;
+    border-radius: 5px;
+
+    background-color: #F2F2F2 !important;
+
+    background: url($originalImg) no-repeat center;
+
+    &:hover{
+        border-color: #134880;
+        background-image: url($hoverImg);
+    }
+}
