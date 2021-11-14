@@ -2,16 +2,14 @@
 
 var direction = -1;
 var disableMovement = false;
-var offset = {
-  topRow: 0,
-  btmRow: 0
-};
+var offset = {};
 var rowArray = [];
 /************************************************************************/
 
 function calcOffsetValues(rowName) {
   var row = $("." + rowName);
   var node = direction == -1 ? row.children(":first") : row.children(":last");
+  offset[rowName] = offset[rowName] ? offset[rowName] : 0;
   offset[rowName] += node.width() * direction;
 } // Call the right method for moving the images based on the choosen direction
 
@@ -35,7 +33,7 @@ function handleLeftShiftMove(row) {
   //  element is not seen
 
   $("." + row).children("img").each(function (i) {
-    $(this).css('transform', 'translateX(' + node.width() + 'px)');
+    $(this).css('transform', "translateX( ".concat(node.width(), "px )"));
   }); // Short delay so the last 'translateX' doesnt get overwriten. Change
   //  the 'translateX' property to 0 and add the transition class to every
   //  image 
@@ -52,8 +50,8 @@ function handleRightShiftMove(row) {
   // Offset all the image element by the previously set offset value + 10(margin) 
   //  and add a transition class
   $("." + row).children("img").each(function (i) {
-    $(this).css('transform', 'translateX(' + (offset[row] + 10) + 'px)');
     $(this).addClass("transition");
+    $(this).css('transform', "translateX( ".concat(offset[row] + 10, "px )"));
   });
 }
 /************************************************************************/

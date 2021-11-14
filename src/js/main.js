@@ -1,6 +1,6 @@
 let direction = -1;
 let disableMovement = false;
-let offset = { topRow: 0, btmRow: 0 }
+let offset = {}
 let rowArray = []
 
 /************************************************************************/
@@ -9,7 +9,8 @@ function calcOffsetValues(rowName){
     const row = $("." + rowName);
     const node = direction == -1? row.children(":first"): row.children(":last"); 
 
-    offset[rowName] += (node.width() * direction)
+    offset[rowName] = offset[rowName]? offset[rowName]: 0;
+    offset[rowName] += (node.width() * direction);
 }
 
 // Call the right method for moving the images based on the choosen direction
@@ -29,7 +30,7 @@ function handleLeftShiftMove(row){
     // Set the 'translateX' propery of every image in a way that the appended 
     //  element is not seen
     $("." + row).children("img").each(function(i){
-        $(this).css('transform','translateX('+ node.width() +'px)');
+        $(this).css('transform',`translateX( ${node.width()}px )`);
     })
 
     // Short delay so the last 'translateX' doesnt get overwriten. Change
@@ -43,13 +44,12 @@ function handleLeftShiftMove(row){
     })
 }
 
-
 function handleRightShiftMove(row){
     // Offset all the image element by the previously set offset value + 10(margin) 
     //  and add a transition class
     $("." + row).children("img").each(function(i){
-        $(this).css('transform','translateX('+ (offset[row] + 10) +'px)');
         $(this).addClass("transition");
+        $(this).css('transform',`translateX( ${offset[row] + 10}px )`);
     })
 }
 
@@ -84,6 +84,7 @@ function handleLeftShiftUpdate(row){
 // When elements get shifted to the right detach the last element of the row
 //  and add it to the start of the list
 function handleRightShiftUpdate(row){
+
     const node = $("." + row).children(':last')
     node.detach();
     $("." + row).prepend(node);   

@@ -51,6 +51,7 @@ body{
 
 .sliderContainer{
     width: 70%;
+    min-height: 420px;
 
     position: relative;
 
@@ -60,13 +61,30 @@ body{
         display: flex;
         flex-direction: column;
 
-        position: absolute; 
-        left: -27vw;
+        position: relative; 
+        left: -25.75vw;
     }
 }
 
 .row{
-    @include row(60vw, 0, -27vw)
+    width: 60vw;
+
+    display: flex;
+    justify-content: flex-end;
+
+    overflow: hidden;
+
+    img{
+        max-height: 200px;
+    
+        margin: 0 0 0.625rem 0.625rem;
+        border-radius: 5px;
+    }
+
+    &:last-of-type{
+        position: relative;
+        left: -10rem;
+    }
 }
 
 .transition{
@@ -100,7 +118,7 @@ body{
 
     position: absolute;
     right: 0;
-    top: calc(50% + 10px)
+    bottom: 70px;
 }
 
 .rightBtn{
