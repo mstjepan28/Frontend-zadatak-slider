@@ -14,15 +14,21 @@
 
 body{
     width: 940px;
+    min-height: 100vh;
     margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     background: $backgroundColor;
 }
 
 /******************************************/
 
 .fillerElem{
-    width: 100%;
-    height: 15vh;
+    width: 940px;
+    min-height: 110px;
 
     display: flex;
     justify-content: center;
@@ -41,7 +47,6 @@ body{
 
 .mainContent{
     min-width: 100%;
-    min-height: 70vh;
 
     display: flex;
     padding: 3.75rem 0;

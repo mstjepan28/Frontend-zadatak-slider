@@ -12,6 +12,7 @@
     background: url($originalImg) no-repeat center;
 
     &:hover{
+        cursor: pointer;
         border-color: #134880;
         background-image: url($hoverImg);
     }
